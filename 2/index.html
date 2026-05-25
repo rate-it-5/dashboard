@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Personal Productivity Dashboard</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/components.css">
+</head>
+
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="sidebar__logo">
+        <span>D</span>
+      </div>
+
+      <nav class="sidebar__nav">
+        <a href="#" class="sidebar__link sidebar__link--active">Dashboard</a>
+        <a href="#" class="sidebar__link">Widgets</a>
+        <a href="#" class="sidebar__link">API</a>
+        <a href="#" class="sidebar__link">Settings</a>
+      </nav>
+    </aside>
+
+    <div class="page">
+      <header class="header">
+        <div>
+          <p class="eyebrow">UI Components Control Panel</p>
+          <h1>Personal Productivity Dashboard</h1>
+          <p class="header__text">
+            Интерактивная панель управления виджетами, созданная на JavaScript с использованием ООП и ES6-модулей.
+          </p>
+        </div>
+
+        <div class="header__info">
+          <span id="widgetCounter">0 виджетов</span>
+        </div>
+      </header>
+
+      <main>
+        <section class="toolbar">
+          <div>
+            <h2>Добавить виджет</h2>
+            <p>
+              Каждый виджет создаётся как отдельный объект класса и имеет независимое состояние.
+            </p>
+          </div>
+
+          <div class="toolbar__actions">
+            <button class="btn btn--primary" id="addTodoBtn" type="button">
+              To-Do
+            </button>
+
+            <button class="btn btn--primary" id="addQuoteBtn" type="button">
+              Quote
+            </button>
+
+            <button class="btn btn--primary" id="addWeatherBtn" type="button">
+              Weather API
+            </button>
+
+            <button class="btn btn--primary" id="addGithubBtn" type="button">
+              GitHub API
+            </button>
+          </div>
+        </section>
+
+        <section class="summary">
+          <div class="summary-card">
+            <span>Тема</span>
+            <strong>Продуктивность</strong>
+          </div>
+
+          <div class="summary-card">
+            <span>Архитектура</span>
+            <strong>ООП + Modules</strong>
+          </div>
+
+          <div class="summary-card">
+            <span>API-виджеты</span>
+            <strong>2 компонента</strong>
+          </div>
+        </section>
+
+        <section class="dashboard-section">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Workspace</p>
+              <h2>Активные виджеты</h2>
+            </div>
+
+            <button class="btn btn--secondary" id="clearDashboardBtn" type="button">
+              Очистить панель
+            </button>
+          </div>
+
+          <div class="dashboard-grid" id="dashboardGrid">
+            <div class="empty-state" id="emptyState">
+              <h3>Панель пока пустая</h3>
+              <p>
+                Добавьте первый виджет с помощью кнопок выше. Виджеты можно сворачивать и удалять.
+              </p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p>
+          <strong>Нейросеть:</strong> ChatGPT
+        </p>
+        <p>
+          <strong>JavaScript:</strong> ООП, ES6 Modules, DOM, события, API-запросы, динамическое добавление и удаление UI-компонентов.
+        </p>
+      </footer>
+    </div>
+  </div>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>

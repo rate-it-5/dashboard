@@ -1,0 +1,237 @@
+.widget {
+  position: relative;
+  overflow: hidden;
+  min-height: 280px;
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02)),
+    var(--card);
+  box-shadow: var(--shadow);
+}
+
+.widget::before {
+  content: "";
+  position: absolute;
+  top: -70px;
+  right: -70px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: rgba(155, 124, 255, 0.16);
+  pointer-events: none;
+}
+
+.widget__header {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.widget__title {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.widget__type {
+  display: inline-flex;
+  width: fit-content;
+  margin-top: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(155, 124, 255, 0.12);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.widget__actions {
+  display: flex;
+  gap: 8px;
+}
+
+.widget__icon-btn {
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  font-weight: 800;
+}
+
+.widget__icon-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.widget__body {
+  position: relative;
+  z-index: 1;
+}
+
+.widget.is-minimized .widget__body {
+  display: none;
+}
+
+.todo-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.todo-form input,
+.github-form input,
+.weather-form input {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  padding: 0 14px;
+  outline: none;
+}
+
+.todo-form input:focus,
+.github-form input:focus,
+.weather-form input:focus {
+  border-color: var(--accent);
+}
+
+.todo-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+  list-style: none;
+}
+
+.todo-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 10px;
+  align-items: center;
+  padding: 12px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.todo-item__text {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.todo-item.is-completed .todo-item__text {
+  color: var(--muted);
+  text-decoration: line-through;
+}
+
+.todo-delete {
+  width: 30px;
+  height: 30px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 107, 107, 0.14);
+  color: var(--red);
+  font-weight: 900;
+}
+
+.quote-text {
+  margin-top: 8px;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.quote-author {
+  margin-top: 14px;
+  color: var(--muted);
+}
+
+.widget-status {
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.weather-result,
+.github-result {
+  margin-top: 18px;
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.weather-temp {
+  font-size: 46px;
+  font-weight: 900;
+  letter-spacing: -0.06em;
+}
+
+.weather-details,
+.github-details {
+  display: grid;
+  gap: 6px;
+  margin-top: 12px;
+  color: var(--muted);
+}
+
+.github-profile {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.github-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 22px;
+  object-fit: cover;
+  border: 1px solid var(--border);
+}
+
+.github-name {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.github-login {
+  color: var(--muted);
+}
+
+.github-link {
+  display: inline-flex;
+  width: fit-content;
+  margin-top: 16px;
+  color: var(--accent);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.api-badge {
+  display: inline-flex;
+  width: fit-content;
+  margin-bottom: 14px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: rgba(49, 208, 170, 0.12);
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+@media (min-width: 520px) {
+  .todo-form,
+  .github-form,
+  .weather-form {
+    grid-template-columns: 1fr auto;
+  }
+}
