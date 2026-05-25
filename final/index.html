@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>P&Co Store | E-commerce</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <a class="logo" href="#top">P&Co</a>
+
+      <nav class="nav">
+        <a href="#catalog">Каталог</a>
+        <a href="#cart">Корзина</a>
+        <a href="#checkout">Оформление</a>
+      </nav>
+
+      <a class="cart-link" href="#cart">
+        Корзина
+        <span id="cartCount">0</span>
+      </a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container">
+        <div class="hero__content">
+          <p class="eyebrow">Final project / E-commerce</p>
+          <h1>P&Co Store</h1>
+          <p class="hero__text">
+            Минималистичный интернет-магазин одежды с интерактивной корзиной,
+            промокодами, сохранением данных и формированием JSON-заказа для отправки на сервер.
+          </p>
+
+          <div class="hero__actions">
+            <a class="btn btn--dark" href="#catalog">Перейти в каталог</a>
+            <a class="btn btn--light" href="#cart">Открыть корзину</a>
+          </div>
+        </div>
+
+        <div class="hero__visual">
+          <img class="hero__image" src="assets/images/hero.jpg" alt="Коллекция одежды P&Co">
+        </div>
+      </div>
+    </section>
+
+    <section class="section catalog-section" id="catalog">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Catalog</p>
+            <h2>Каталог товаров</h2>
+          </div>
+
+          <div class="filters" id="filters">
+            <button class="filter-btn is-active" type="button" data-category="all">Все</button>
+            <button class="filter-btn" type="button" data-category="tshirts">Футболки</button>
+            <button class="filter-btn" type="button" data-category="hoodies">Худи</button>
+            <button class="filter-btn" type="button" data-category="trousers">Брюки</button>
+            <button class="filter-btn" type="button" data-category="accessories">Аксессуары</button>
+          </div>
+        </div>
+
+        <div class="products-grid" id="productsGrid"></div>
+      </div>
+    </section>
+
+    <section class="section cart-section" id="cart">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Shopping cart</p>
+            <h2>Корзина</h2>
+          </div>
+
+          <button class="btn btn--light" id="clearCartBtn" type="button">
+            Очистить корзину
+          </button>
+        </div>
+
+        <div class="cart-layout">
+          <div class="cart-list" id="cartList">
+            <div class="empty-cart">
+              <h3>Корзина пока пустая</h3>
+              <p>Добавьте товары из каталога, чтобы оформить заказ.</p>
+            </div>
+          </div>
+
+          <aside class="cart-summary">
+            <h3>Итого</h3>
+
+            <div class="summary-row">
+              <span>Товары</span>
+              <strong id="subtotalValue">0 ₽</strong>
+            </div>
+
+            <div class="summary-row">
+              <span>Скидка</span>
+              <strong id="discountValue">0 ₽</strong>
+            </div>
+
+            <div class="summary-row">
+              <span>Доставка</span>
+              <strong id="deliveryValue">350 ₽</strong>
+            </div>
+
+            <div class="summary-row summary-row--total">
+              <span>К оплате</span>
+              <strong id="totalValue">0 ₽</strong>
+            </div>
+
+            <form class="promo-form" id="promoForm">
+              <label for="promoInput">Промокод</label>
+              <div>
+                <input id="promoInput" type="text" placeholder="Например, PANDCO10">
+                <button class="btn btn--dark" type="submit">Применить</button>
+              </div>
+              <p class="form-message" id="promoMessage"></p>
+            </form>
+
+            <div class="promo-hint">
+              <p><strong>Доступные промокоды:</strong></p>
+              <p>PANDCO10 — скидка 10%</p>
+              <p>STUDENT15 — скидка 15%</p>
+              <p>FREESHIP — бесплатная доставка</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section checkout-section" id="checkout">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Checkout</p>
+            <h2>Оформление заказа</h2>
+          </div>
+        </div>
+
+        <div class="checkout-layout">
+          <form class="checkout-form" id="checkoutForm">
+            <div class="form-grid">
+              <label>
+                Имя покупателя
+                <input id="customerName" type="text" placeholder="Иванова Александра">
+              </label>
+
+              <label>
+                Телефон
+                <input id="customerPhone" type="tel" placeholder="+7 999 000-00-00">
+              </label>
+
+              <label>
+                Email
+                <input id="customerEmail" type="email" placeholder="example@mail.ru">
+              </label>
+
+              <label>
+                Способ доставки
+                <select id="deliveryMethod">
+                  <option value="courier">Курьерская доставка</option>
+                  <option value="pickup">Самовывоз</option>
+                </select>
+              </label>
+            </div>
+
+            <label>
+              Адрес доставки
+              <textarea id="customerAddress" placeholder="Город, улица, дом, квартира"></textarea>
+            </label>
+
+            <button class="btn btn--dark" type="submit">
+              Сформировать JSON заказа
+            </button>
+
+            <p class="form-message" id="checkoutMessage"></p>
+          </form>
+
+          <div class="json-panel">
+            <div class="json-panel__header">
+              <h3>Данные для отправки на сервер</h3>
+              <button class="btn btn--light" id="copyJsonBtn" type="button">
+                Скопировать JSON
+              </button>
+            </div>
+
+            <pre id="orderJson">{}</pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about-section">
+      <div class="container">
+        <div class="about-card">
+          <p class="eyebrow">Project info</p>
+          <h2>О проекте</h2>
+          <p>
+            Финальный проект выполнен по теме «E-commerce с корзиной».
+            В проекте реализованы каталог товаров, интерактивная корзина,
+            расчет стоимости, промокоды, сохранение состояния в LocalStorage
+            и формирование JSON-объекта заказа для дальнейшей передачи на бэкенд.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
